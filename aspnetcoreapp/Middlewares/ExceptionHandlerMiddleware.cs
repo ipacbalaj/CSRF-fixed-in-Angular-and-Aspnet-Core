@@ -26,12 +26,6 @@ namespace aspnetcoreapp.Middlewares
             }
             catch (Exception ex)
             {
-                if (context.Response.HasStarted)
-                {
-                    _logger.LogWarning("The response has already started, the http status code middleware will not be executed.");
-                    throw;
-                }
-
                 context.Response.Clear();                
                 await context.Response.WriteAsync(ex.Message);
 

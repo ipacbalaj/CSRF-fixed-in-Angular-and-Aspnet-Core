@@ -44,6 +44,7 @@ namespace aspnetcoreapp
             }
 
             app.UseMiddleware<AntiForgeryMiddleware>();
+            app.UseMiddleware<ValidateAntiForgeryTokenMiddleware>();
             app.UseMvc();
         }
     }
